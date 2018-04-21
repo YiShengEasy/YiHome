@@ -7,7 +7,7 @@ class Hover extends React.PureComponent{
   render(){
     const { children,hoverAnimate,className,...res}=this.props;
     return (
-      <div className={`${hoverAnimate} ${className}`} {...res }>
+      <div className={`${hoverAnimate} ${className||''}`} {...res }>
         {children}
       </div>
     )

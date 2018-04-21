@@ -7,12 +7,12 @@ import {Router} from 'dva/router';
 const Layout = ({children, history}) => {
   const renderRoutes =
     <Router history={history}>
-    {children}
-  </Router>
+      {children}
+    </Router>
   return (
     <div>
-      <Header></Header>
-      <Nav history={history}></Nav>
+        <Header></Header>
+        <Nav history={history}></Nav>
       {renderRoutes}
     </div>
   )
