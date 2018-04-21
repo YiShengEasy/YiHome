@@ -22,7 +22,7 @@ const styles = {
 const Nav = ({ classes }) => {
   return (
     <div className={classes.nav}>
-        <Hover className={classes.navItem}>样式动画</Hover>
+        <Hover.EasyHover className={classes.navItem}>样式动画</Hover.EasyHover>
       <div className={classes.navItem}>设计模式</div>
       <div className={classes.navItem}>技术总结</div>
     </div>

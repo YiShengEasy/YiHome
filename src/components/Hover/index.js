@@ -1,42 +1,21 @@
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
+import PropsType from 'prop-types'
+import EasyHover from "./EasyHover";
 
-const styles = {
-  hover:{
-    '&::before':{
-      content:'"["',// ""  必须转义
-      display:'inline-block',
-      opacity:0,
-      marginRight:10,
-      transform: 'translateX(20px)',
-      transition:'transform 0.3s, opacity 0.2s',
-    },
-    '&::after':{
-      content:'"]"',
-      display:'inline-block',
-      opacity:0,
-      marginLeft:10,
-      transform: 'translateX(-20px)',
-      transition:'transform 0.3s, opacity 0.2s',
-    },
-    '&:hover::after,&:hover::before':{
-        opacity:1,
-        transform:'translateX(0)'
-    }
-  }
-};
 class Hover extends React.PureComponent{
+  static EasyHover=EasyHover;
   render(){
-    const { children,classes,className,...res}=this.props;
+    const { children,hoverAnimate,className,...res}=this.props;
     return (
-      <div className={`${classes.hover} ${className}`} {...res }>
+      <div className={`${hoverAnimate} ${className}`} {...res }>
         {children}
       </div>
     )
-  }
+}
 };
 
 Hover.propTypes = {
+  hoverAnimate:PropsType.string.isRequired
 };
 
-export default withStyles(styles)(Hover);
+export default Hover;
