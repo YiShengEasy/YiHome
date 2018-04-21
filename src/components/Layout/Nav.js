@@ -1,35 +1,47 @@
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 import Hover from '../Hover';
+import appRoutes from '../../routes/appRoutes'
+import {Link, Router} from 'dva/router';
 
 const styles = {
   nav: {
     padding: 10,
     display: 'flex',
     justifyContent: 'space-around',
-    backgroundColor:'#90CAF9'
+    backgroundColor: '#90CAF9',
+    '& a':{
+      textDecoration:'none',
+    }
   },
   navItem: {
     flex: 1,
-    textAlign:'center',
-    color:'#fff',
-    fontSize:20
+    textAlign: 'center',
+    color: '#fff',
+    fontSize: 20
   },
   appBar: {
     backgroundColor: '#2196f3'
   },
 };
-const Nav = ({ classes }) => {
+const Nav = ({classes, history}) => {
   return (
-    <div className={classes.nav}>
-        <Hover.EasyHover className={classes.navItem}>样式动画</Hover.EasyHover>
-      <div className={classes.navItem}>设计模式</div>
-      <div className={classes.navItem}>技术总结</div>
-    </div>
-  );
+    <Router history={history}>
+      <div className={classes.nav}>
+        {appRoutes.map(item => {
+          return (
+            <Link key={`nav${item.path}`} to={item.path}className={classes.navItem}>
+              <Hover.EasyHover key={`navItem${item.path}`} >
+                {item.name}
+              </Hover.EasyHover>
+            </Link>
+          )
+        })}
+      </div>
+    </Router>
+  )
 };
 
-Nav.propTypes = {
-};
+Nav.propTypes = {};
 
 export default withStyles(styles)(Nav);

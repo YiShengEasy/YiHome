@@ -1,18 +1,23 @@
 import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
+import {Route,Switch} from 'dva/router';
 import Layout from './components/Layout';
 import IndexPage from './routes/IndexPage';
+import appRoutes from './routes/appRoutes'
 
-function RouterConfig({ history }) {
+// 默认路由配置
+function RouterConfig({history}) {
   return (
-    <Layout>
-      <Router history={history}>
-        <Switch>
-          <Route path="/" exact component={IndexPage} />
-        </Switch>
-      </Router>
+    <Layout history={history}>
+      <Switch>
+        <Route path="/" exact component={IndexPage}/>
+        {appRoutes.map(item => {
+          return (
+            <Route key={`route${item.path}`} path={item.path} component={item.component}/>
+          )
+        })}
+      </Switch>
     </Layout>
-    );
-  }
-  
-  export default RouterConfig;
+  );
+}
+
+export default RouterConfig;
