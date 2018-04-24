@@ -1,14 +1,23 @@
 import React from 'react';
+import {Grid, Paper} from 'material-ui'
 
 const CSSPage = () => {
   return (
-    <div>
-      CSSPage
-    </div>
+    <React.Fragment>
+      <Grid item >
+        <Paper>
+          CSSPage
+        </Paper>
+      </Grid>
+      <Grid item>
+        <Paper>
+          CSSPage
+        </Paper>
+      </Grid>
+    </React.Fragment>
   );
 };
 
-CSSPage.propTypes = {
-};
+CSSPage.propTypes = {};
 
 export default CSSPage;

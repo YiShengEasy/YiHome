@@ -1,5 +1,5 @@
 import CSSPage from "./CSSPage";
-import JSPage from "./JSPage";
+import ReactPage from "./ReactPage";
 import {Copyright, CloudCircle} from '@material-ui/icons';
 
 const appRoutes=[
@@ -10,9 +10,9 @@ const appRoutes=[
     icon:Copyright
   },
   {
-    path:'/jspage',
+    path:'/reactPage',
     name:'JS进阶',
-    component:JSPage,
+    component:ReactPage,
     icon:CloudCircle
   }
 ]

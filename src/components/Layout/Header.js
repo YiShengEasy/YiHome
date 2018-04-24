@@ -5,7 +5,6 @@ import {AccountCircle, CloudCircle} from '@material-ui/icons';
 
 const styles = {
   headRoot: {
-    width: '100%',
     backgroundColor: '#20232a',
   },
   flex: {
@@ -13,15 +12,12 @@ const styles = {
   },
   appBar: {
     display: 'flex',
-    width: '70%',
-    minWidth:1024,
-    margin: '0 auto',
     backgroundColor: 'transparent',
   },
 };
 const Header = ({classes}) => {
   return (
-    <AppBar className={classes.headRoot} position="static">
+    <AppBar className={classes.headRoot} position="fixed">
         <Toolbar className={classes.appBar}>
           <Typography variant="title" color="inherit" className={classes.flex}>
             Easy的个人主页
