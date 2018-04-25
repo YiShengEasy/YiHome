@@ -6,6 +6,7 @@ import React from 'react';
 
 const CSSPrism = (cssString) => {
   const html = Prism.highlight(cssString, Prism.languages.css);
+  console.log('html',html)
   return (WrappedComponent) => class extends React.PureComponent{
     render(){
       return <WrappedComponent cssHtml={html}></WrappedComponent>

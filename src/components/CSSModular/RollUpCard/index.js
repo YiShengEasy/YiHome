@@ -2,9 +2,9 @@
 import React from 'react';
 import CSSPrism from '~/CSSModular/CSSPrism';
 import CSSCard from '~/CSSModular/CSSCard';
-const txt = require("raw-loader!./test.txt");
-
-@CSSPrism(txt)
+//import txt from  '../cardTxt'
+const test = require("raw-loader!./test.txt")
+@CSSPrism(test)
 class RollUpCard extends React.PureComponent{
   render(){
     const { cssHtml }=this.props;
