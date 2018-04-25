@@ -7,9 +7,6 @@ import {Link, Router} from 'dva/router';
 
 
 const styles = {
-  nav: {
-    flexGrow: 1,
-  },
   gridContain:{
     background:'#2196f3',
     padding:'0 10px',
@@ -24,16 +21,16 @@ const styles = {
     justifyContent:'center',
     fontSize: 20,
     height: 30,
-    lineHeight: 1.5
+    lineHeight: 1.5,
+    margin:10
   },
 };
 const Nav = ({classes, history}) => {
   return (
-    <Router history={history} className={classes.nav}>
+    <Router history={history}>
       <Grid
         container
-        className={classes.gridContain}
-        spacing={24}>
+        className={classes.gridContain}>
         {appRoutes.map(item => {
           const Icon = item.icon;
           return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactLayout from "../components/ReactModular/Layout/ReactPage";
+import ReactLayout from "~/ReactModular/Layout/ReactLayout";
 
 
 class ReactFunc extends React.PureComponent {

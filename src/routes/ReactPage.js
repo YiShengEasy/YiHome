@@ -1,6 +1,6 @@
 import React from 'react';
-import Stepper from '../components/ReactModular/Stepper'
-import ReactLayout from "../components/ReactModular/Layout/ReactPage";
+import Stepper from '~/ReactModular/Stepper'
+import ReactLayout from "~/ReactModular/Layout/ReactLayout";
 
 
 class ReactPage extends React.PureComponent {

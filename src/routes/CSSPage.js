@@ -1,23 +1,42 @@
 import React from 'react';
-import {Grid, Paper} from 'material-ui'
+import {Grid} from 'material-ui'
+import CSSCard from '~/CSSModular/CSSCard'
+import {withStyles} from 'material-ui/styles';
 
-const CSSPage = () => {
+const styles={
+  cssContain:{
+    padding:30,
+    flexGrow:1,
+    width:'100%' // 导航fix  导致宽度一直为浏览器100%
+  }
+}
+const CSSPage = ({classes}) => {
   return (
-    <React.Fragment>
+    <Grid container
+          className={classes.cssContain}
+          spacing={24}>
       <Grid item >
-        <Paper>
-          CSSPage
-        </Paper>
+        <CSSCard></CSSCard>
       </Grid>
       <Grid item>
-        <Paper>
-          CSSPage
-        </Paper>
+        <CSSCard></CSSCard>
       </Grid>
-    </React.Fragment>
+      <Grid item>
+        <CSSCard></CSSCard>
+      </Grid>
+      <Grid item>
+        <CSSCard></CSSCard>
+      </Grid>
+      <Grid item>
+        <CSSCard></CSSCard>
+      </Grid>
+      <Grid item>
+        <CSSCard></CSSCard>
+      </Grid>
+    </Grid>
   );
 };
 
 CSSPage.propTypes = {};
 
-export default CSSPage;
+export default withStyles(styles)(CSSPage);

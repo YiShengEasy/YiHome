@@ -13,6 +13,7 @@
     "gsap": "^1.20.4",
     "immutable": "^3.8.2",
     "material-ui": "^1.0.0-beta.42",
+    "path": "^0.12.7",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
+    "babel-plugin-module-resolver": "^3.1.1",
     "eslint": "^4.14.0",
     "eslint-config-umi": "^0.1.1",
     "eslint-plugin-flowtype": "^2.34.1",

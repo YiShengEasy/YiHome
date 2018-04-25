@@ -1,8 +1,0 @@
-{
-"env": {
-  "development": {
-      "devtool":"source-map",
-    "extraBabelPlugins": ["dva-hmr"]
-  }
-}
-}
