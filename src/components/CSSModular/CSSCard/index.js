@@ -3,9 +3,9 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import classnames from 'classnames';
-import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
+import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import red from 'material-ui/colors/red';
@@ -23,7 +23,7 @@ const styles = theme => ({
   },
   cardConent: {
     height: 200,
-    overflowY:'auto'
+    overflowY: 'auto'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -41,23 +41,23 @@ const styles = theme => ({
 });
 
 class CSSCard extends React.Component {
-  static defaultProps={
-    title:'暂无标题',
-    cssHtml:''
+  static defaultProps = {
+    title: '暂无标题',
+    cssHtml: ''
   }
-  state = {expanded: true};
+  state = { expanded: true };
   handleExpandClick = () => {
-    this.setState({expanded: !this.state.expanded});
+    this.setState({ expanded: !this.state.expanded });
   };
   render() {
-    const {classes,avatar,title,children,cssHtml} = this.props;
+    const { classes, avatar, title, children, cssHtml, link = '' } = this.props;
     const renderCardContent =
       this.state.expanded ?
         <CardContent className={classes.cardConent}>
           {children}
         </CardContent> :
-        <CardContent className={classes.cardConent}>     
-            <div dangerouslySetInnerHTML={{ __html: cssHtml }}></div>
+        <CardContent className={classes.cardConent}>
+          <div dangerouslySetInnerHTML={{ __html: cssHtml }}></div>
         </CardContent>
     return (
       <div>
@@ -65,12 +65,12 @@ class CSSCard extends React.Component {
           <CardHeader
             avatar={
               <Avatar aria-label="Recipe" className={classes.avatar}>
-                {avatar?'':'R'}
+                {avatar ? '' : 'R'}
               </Avatar>
             }
             action={
               <IconButton>
-                <MoreVertIcon/>
+                <MoreVertIcon />
               </IconButton>
             }
             title={title}
@@ -79,11 +79,14 @@ class CSSCard extends React.Component {
           {renderCardContent}
           <CardActions className={classes.actions} disableActionSpacing>
             <IconButton aria-label="Add to favorites">
-              <FavoriteIcon/>
+              <FavoriteIcon />
             </IconButton>
-            <IconButton aria-label="Share">
-              <ShareIcon/>
-            </IconButton>
+            {link ? <a href={link} target='_blank'>
+              <IconButton aria-label="Share">
+                <ShareIcon />
+              </IconButton>
+            </a> : ''}
+
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
@@ -92,7 +95,7 @@ class CSSCard extends React.Component {
               aria-expanded={this.state.expanded}
               aria-label="Show more"
             >
-              <ExpandMoreIcon/>
+              <ExpandMoreIcon />
             </IconButton>
           </CardActions>
         </Card>
@@ -103,9 +106,9 @@ class CSSCard extends React.Component {
 
 CSSCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  cssHtml:PropTypes.string.isRequired,
-  avatar:PropTypes.string,
-  title:PropTypes.string.isRequired,
+  cssHtml: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(CSSCard);

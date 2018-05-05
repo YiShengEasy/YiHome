@@ -1,12 +1,18 @@
-@radioHeight:30px;
+@radioHeight:20px;
+// 渐变   #fb3 50%,#58a 0  前者表示渐变开始颜色和位置，后者表示渐变结束时间和位置  0表示自动填满。  可以多次转换
 .stripe{
     height:calc(100%-@radioHeight);
-    background-size:100% 30px;
     &-horizontal{
-        background: linear-gradient(#fb3 50%,#58a 50%);
+        background: linear-gradient(#fb3 50%,#58a 0); // 后面的默认填满，此处0 和50%没差别
+        background-size:100% 30px;
     }
-}
-
-.form{
-    height:@radioHeight;
+    &-vertical{
+        background: linear-gradient(to right, #fb3 50%,#58a 0);
+        background-size:30px 100%;
+    }
+    &-Declining{
+       background: linear-gradient(45deg,#fb3 25%,#58a 0, 
+       #58a 50%, #fb3 0, #fb3 75%,#58a 0);  // 25 50 75 为分割线
+       background-size:42px 42px; //2*15*根号2
+    }
 }
