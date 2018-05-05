@@ -1,5 +1,6 @@
 const path = require('path');
 export default {
+  "disableCSSModules":true,
   "env": {
     "development": {
       "devtool": "source-map",

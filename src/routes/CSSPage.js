@@ -2,6 +2,7 @@ import React from 'react';
 import {Grid} from 'material-ui'
 import CSSCard from '~/CSSModular/CSSCard'
 import RollUpCard from '~/CSSModular/RollUpCard'
+import StripeCard from '~/CSSModular/StripeCard'
 import {withStyles} from 'material-ui/styles';
 
 const styles={
@@ -20,7 +21,7 @@ const CSSPage = ({classes}) => {
         <RollUpCard></RollUpCard>
       </Grid>
       <Grid item>
-        <CSSCard></CSSCard>
+        <StripeCard></StripeCard>
       </Grid>
       <Grid item>
         <CSSCard></CSSCard>

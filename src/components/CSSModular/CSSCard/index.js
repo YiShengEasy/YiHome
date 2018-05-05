@@ -8,7 +8,6 @@ import classnames from 'classnames';
 import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
-import Typography from 'material-ui/Typography';
 import red from 'material-ui/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
@@ -46,7 +45,7 @@ class CSSCard extends React.Component {
     title:'暂无标题',
     cssHtml:''
   }
-  state = {expanded: false};
+  state = {expanded: true};
   handleExpandClick = () => {
     this.setState({expanded: !this.state.expanded});
   };
@@ -57,10 +56,8 @@ class CSSCard extends React.Component {
         <CardContent className={classes.cardConent}>
           {children}
         </CardContent> :
-        <CardContent className={classes.cardConent}>
-          <Typography component="p">
+        <CardContent className={classes.cardConent}>     
             <div dangerouslySetInnerHTML={{ __html: cssHtml }}></div>
-          </Typography>
         </CardContent>
     return (
       <div>
