@@ -3,9 +3,7 @@ import React from 'react';
 import CSSPrism from '~/CSSModular/CSSPrism';
 import CSSCard from '~/CSSModular/CSSCard';
 import { withStyles } from 'material-ui/styles';
-//import txt from  '../cardTxt'
-const test = require("raw-loader!./a.txt")
-
+import md from  './test.md'
 
 
 const styles={
@@ -19,7 +17,7 @@ const styles={
 }
 
 
-@CSSPrism(test)
+@CSSPrism(md)
 @withStyles(styles)
 class RollUpCard extends React.PureComponent {
   render() {
