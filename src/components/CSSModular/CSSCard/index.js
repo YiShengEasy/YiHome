@@ -23,7 +23,13 @@ const styles = theme => ({
   },
   cardConent: {
     height: 200,
+<<<<<<< HEAD
     overflowY: 'auto'
+=======
+    overflowY:'auto',
+    whiteSpace:'pre-wrap',//必须要这个 不然高亮不会换行
+    outline:0
+>>>>>>> 483d9c436027dd1b1d6e8fd2b23b332e3436734b
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -57,7 +63,11 @@ class CSSCard extends React.Component {
           {children}
         </CardContent> :
         <CardContent className={classes.cardConent}>
+<<<<<<< HEAD
           <div dangerouslySetInnerHTML={{ __html: cssHtml }}></div>
+=======
+            <div dangerouslySetInnerHTML={{ __html: cssHtml }}></div>
+>>>>>>> 483d9c436027dd1b1d6e8fd2b23b332e3436734b
         </CardContent>
     return (
       <div>

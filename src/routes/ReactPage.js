@@ -2,7 +2,7 @@ import React from 'react';
 import Stepper from '~/ReactModular/Stepper'
 import ReactLayout from "~/ReactModular/Layout/ReactLayout";
 
-
+ReactLayout.test=2;
 class ReactPage extends React.PureComponent {
   render() {
     return (

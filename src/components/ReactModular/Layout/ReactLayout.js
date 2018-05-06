@@ -15,8 +15,12 @@ const styles={
 
 @withStyles(styles)
 class ReactLayout extends React.PureComponent{
+  constructor(props){
+    super(props);
+  }
   render(){
     const {classes,children}=this.props;
+    console.log('render',this.test)
     return (
       <Grid container
             spacing={24}
