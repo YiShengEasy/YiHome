@@ -52,7 +52,7 @@ class CSSCard extends React.Component {
     this.setState({ expanded: !this.state.expanded });
   };
   render() {
-    const { classes, avatar, title,description='', children, cssHtml, link = '' } = this.props;
+    const { classes, avatar, title,description='暂无描述', children, cssHtml, link = '' } = this.props;
     const renderCardContent =
       this.state.expanded ?
         <CardContent className={classes.cardConent}>

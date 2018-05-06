@@ -6,7 +6,7 @@ import { FormGroup, FormControlLabel } from 'material-ui/Form';
 import cx from 'classnames';
 import Radio from 'material-ui/Radio';
 import './index.less'
-import md from './a.md'
+import md from './StripeCard.md'
 const radioList = ['horizontal', 'vertical','Declining'];
 
 @CSSPrism(md)

@@ -8,7 +8,7 @@ const styles = {
     backgroundColor: '#20232a',
   },
   flex: {
-    flex: 1,
+    flex: '1 1 auto',
   },
   appBar: {
     display: 'flex',

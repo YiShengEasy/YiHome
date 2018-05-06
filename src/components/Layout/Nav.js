@@ -9,7 +9,6 @@ import {Link, Router} from 'dva/router';
 const styles = {
   gridContain:{
     background:'#2196f3',
-    padding:'0 10px',
     '& a': {
       textDecoration: 'none',
     }
@@ -30,6 +29,7 @@ const Nav = ({classes, history}) => {
     <Router history={history}>
       <Grid
         container
+        spacing={12}
         className={classes.gridContain}>
         {appRoutes.map(item => {
           const Icon = item.icon;

@@ -1,15 +1,13 @@
 import React from 'react';
 import {Grid} from 'material-ui'
-import CSSCard from '~/CSSModular/CSSCard'
-import RollUpCard from '~/CSSModular/RollUpCard'
-import StripeCard from '~/CSSModular/StripeCard'
+import CSSComponentList from '~/CSSModular/CSSComponentList';
 import {withStyles} from 'material-ui/styles';
 
-const styles={
-  cssContain:{
-    padding:30,
-    flexGrow:1,
-    width:'100%'
+const styles = {
+  cssContain: {
+    padding: 30,
+    flexGrow: 1,
+    width: '100%'
   }
 }
 const CSSPage = ({classes}) => {
@@ -17,24 +15,14 @@ const CSSPage = ({classes}) => {
     <Grid container
           className={classes.cssContain}
           spacing={24}>
-      <Grid item >
-        <RollUpCard></RollUpCard>
-      </Grid>
-      <Grid item>
-        <StripeCard></StripeCard>
-      </Grid>
-      <Grid item>
-        <CSSCard></CSSCard>
-      </Grid>
-      <Grid item>
-        <CSSCard></CSSCard>
-      </Grid>
-      <Grid item>
-        <CSSCard></CSSCard>
-      </Grid>
-      <Grid item>
-        <CSSCard></CSSCard>
-      </Grid>
+      {CSSComponentList.map(card => {
+        let Component = card.component;
+        return (
+          <Grid item key={card.name}>
+            <Component></Component>
+          </Grid>)
+
+      })}
     </Grid>
   );
 };

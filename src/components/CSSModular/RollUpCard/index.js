@@ -22,7 +22,6 @@ const styles={
 class RollUpCard extends React.PureComponent {
   render() {
     const { cssHtml, classes } = this.props;
-    console.log(classes)
     return <CSSCard cssHtml={cssHtml} title={'边框内圆角'}>
       <div className={classes.radius}>
         测试效果卡片

@@ -19,7 +19,6 @@ const CSSPrism = (path) => {
         .then(response => response.text())
         .then(text => {
           const html = Prism.highlight(text, Prism.languages.css);
-          console.log('html',html)
           this.setState({html});
         });
     }
