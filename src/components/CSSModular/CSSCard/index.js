@@ -50,7 +50,7 @@ class CSSCard extends React.Component {
     this.setState({ expanded: !this.state.expanded });
   };
   render() {
-    const { classes, avatar, title, children, cssHtml, link = '' } = this.props;
+    const { classes, avatar, title,description='', children, cssHtml, link = '' } = this.props;
     const renderCardContent =
       this.state.expanded ?
         <CardContent className={classes.cardConent}>
@@ -74,7 +74,7 @@ class CSSCard extends React.Component {
               </IconButton>
             }
             title={title}
-            subheader="September 14, 2016"
+            subheader={description}
           />
           {renderCardContent}
           <CardActions className={classes.actions} disableActionSpacing>
@@ -86,7 +86,6 @@ class CSSCard extends React.Component {
                 <ShareIcon />
               </IconButton>
             </a> : ''}
-
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,

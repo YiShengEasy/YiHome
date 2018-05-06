@@ -19,7 +19,10 @@ class StripeCard extends React.PureComponent {
   render() {
     const { cssHtml } = this.props;
     const classStr=cx('stripe',`stripe-${this.state.selectedValue}`);
-    return <CSSCard cssHtml={cssHtml} title={'条纹背景'} link={'http://lea.verou.me/css3patterns/'}>
+    return  <CSSCard cssHtml={cssHtml} 
+    title={'条纹背景'} 
+    description={'CSS 线性渐变,background-size'}
+    link={'http://lea.verou.me/css3patterns/'}>
       <div className={classStr}>
       </div>
       <FormGroup row>
