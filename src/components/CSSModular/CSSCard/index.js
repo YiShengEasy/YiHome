@@ -24,7 +24,9 @@ const styles = theme => ({
   },
   cardConent: {
     height: 200,
-    overflowY:'auto'
+    overflowY:'auto',
+    whiteSpace:'pre-wrap',//必须要这个 不然高亮不会换行
+    outline:0
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -58,9 +60,7 @@ class CSSCard extends React.Component {
           {children}
         </CardContent> :
         <CardContent className={classes.cardConent}>
-          <Typography component="p">
             <div dangerouslySetInnerHTML={{ __html: cssHtml }}></div>
-          </Typography>
         </CardContent>
     return (
       <div>
