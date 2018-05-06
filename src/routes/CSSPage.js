@@ -5,7 +5,7 @@ import {withStyles} from 'material-ui/styles';
 
 const styles = {
   cssContain: {
-    padding: 30,
+    padding: 16,
     flexGrow: 1,
     width: '100%'
   }
@@ -14,12 +14,12 @@ const CSSPage = ({classes}) => {
   return (
     <Grid container
           className={classes.cssContain}
-          spacing={24}>
+          spacing={16}>
       {CSSComponentList.map(card => {
         let Component = card.component;
         return (
           <Grid item key={card.name}>
-            <Component></Component>
+            <Component title={card.title} description={card.description}></Component>
           </Grid>)
 
       })}
