@@ -9,8 +9,8 @@ import md from './AntBorderCard.md'
 @CSSPrism(md)
 class AntBorderCard extends React.PureComponent {
   render() {
-    const { cssHtml } = this.props;
-    return <CSSCard cssHtml={cssHtml} title={'蚂蚁行军效果'} description={'CSS 线性渐变,background,css动画'}>
+    const { code } = this.props;
+    return <CSSCard code={code} title={'蚂蚁行军效果'} description={'CSS 线性渐变,background,css动画'}>
       <div className={'antMove'}>
         repeating-linear-gradient  配合 linear-gradient（white，white）背景覆盖。
         并配合keyframes重复动画改变background-position: 100%;

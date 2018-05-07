@@ -15,9 +15,9 @@ class StripeCard extends React.PureComponent {
     selectedValue: 'horizontal' //vertical,Declining
   }
   render() {
-    const { cssHtml } = this.props;
+    const { code } = this.props;
     const classStr=cx('stripe',`stripe-${this.state.selectedValue}`);
-    return  <CSSCard cssHtml={cssHtml} title={'条纹背景'} description={'CSS 线性渐变,background-size'}
+    return  <CSSCard code={code} title={'条纹背景'} description={'CSS 线性渐变,background-size'}
     link={'http://lea.verou.me/css3patterns/'}>
       <div className={classStr}>
       </div>

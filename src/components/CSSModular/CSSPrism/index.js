@@ -6,24 +6,23 @@ import React from 'react';
 
 
 const CSSPrism = (path) => {
-  return (WrappedComponent) => class extends React.PureComponent{
-    constructor(props)
-    {
+  return (WrappedComponent) => class extends React.PureComponent {
+    constructor(props) {
       super(props);
-      this.state={
-        html:''
+      this.state = {
+        code: { originalCode: '', highlightCode: '' }
       }
     }
-    componentDidMount(){
+    componentDidMount() {
       fetch(path)
         .then(response => response.text())
         .then(text => {
           const html = Prism.highlight(text, Prism.languages.css);
-          this.setState({html});
+          this.setState({ code: { originalCode: text, highlightCode: html } });
         });
     }
-    render(){
-      return <WrappedComponent cssHtml={this.state.html}></WrappedComponent>
+    render() {
+      return <WrappedComponent code={this.state.code}></WrappedComponent>
     }
   }
 }

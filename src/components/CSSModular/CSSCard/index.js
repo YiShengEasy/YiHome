@@ -7,12 +7,13 @@ import { withStyles } from 'material-ui/styles';
 import classnames from 'classnames';
 import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
+import { IconButton, Snackbar } from 'material-ui';
 import red from 'material-ui/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import copy from 'copy-to-clipboard'; //剪切板插件
 
 const styles = theme => ({
   card: {
@@ -23,9 +24,9 @@ const styles = theme => ({
   },
   cardConent: {
     height: 200,
-    overflowY:'auto',
-    whiteSpace:'pre-wrap',//必须要这个 不然高亮不会换行
-    outline:0
+    overflowY: 'auto',
+    whiteSpace: 'pre-wrap',//必须要这个 不然高亮不会换行
+    outline: 0
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -45,22 +46,45 @@ const styles = theme => ({
 class CSSCard extends React.Component {
   static defaultProps = {
     title: '暂无标题',
-    cssHtml: ''
+    code: ''
   }
-  state = { expanded: true };
+  state = {
+    expanded: true,
+    snackbarOpen: false
+  };
   handleExpandClick = () => {
     this.setState({ expanded: !this.state.expanded });
   };
+  handleCopyCode = (string) => {
+    copy(string);
+    this.setState({
+      snackbarOpen: true
+    },()=> setTimeout(
+      () => {
+        this.state.snackbarOpen && this.setState({ snackbarOpen: false })
+      }, 1500)
+    )
+  }
   render() {
-    const { classes, avatar, title,description='暂无描述', children, cssHtml, link = '' } = this.props;
+    const { classes, avatar, title, description = '暂无描述', children, code, link = '' } = this.props;
     const renderCardContent =
       this.state.expanded ?
         <CardContent className={classes.cardConent}>
           {children}
         </CardContent> :
         <CardContent className={classes.cardConent}>
-          <div dangerouslySetInnerHTML={{ __html: cssHtml }}></div>
+          <div dangerouslySetInnerHTML={{ __html: code.highlightCode }}></div>
         </CardContent>
+    //弹出提示框
+    const renderSnackbar =
+      <Snackbar
+        anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
+        open={this.state.snackbarOpen}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+        message={<span id="message-id" >代码已复制到剪切板</span>}
+      />
     return (
       <div>
         <Card className={classes.card}>
@@ -80,7 +104,7 @@ class CSSCard extends React.Component {
           />
           {renderCardContent}
           <CardActions className={classes.actions} disableActionSpacing>
-            <IconButton aria-label="Add to favorites">
+            <IconButton onClick={()=>this.handleCopyCode(code.originalCode)} aria-label="Add to favorites">
               <FavoriteIcon />
             </IconButton>
             {link ? <a href={link} target='_blank'>
@@ -100,6 +124,7 @@ class CSSCard extends React.Component {
             </IconButton>
           </CardActions>
         </Card>
+        {renderSnackbar}
       </div>
     );
   }
@@ -107,7 +132,7 @@ class CSSCard extends React.Component {
 
 CSSCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  cssHtml: PropTypes.string.isRequired,
+  code: PropTypes.object.isRequired,
   avatar: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
