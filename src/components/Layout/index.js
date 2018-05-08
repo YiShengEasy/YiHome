@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './Header';
 import Nav from './Nav';
 import {Router} from 'dva/router';
+import { MuiThemeProvider } from 'material-ui/styles';
+import theme from '/theme';
 
 const Layout = ({children, history}) => {
   const renderRoutes =
@@ -9,13 +11,13 @@ const Layout = ({children, history}) => {
         {children}
     </Router>
   return (
-    <div>
+    <MuiThemeProvider theme={theme}>
       <Header></Header>
       <div style={{marginTop:60}}>
         <Nav history={history}></Nav>
         {renderRoutes}
       </div>
-    </div>
+    </MuiThemeProvider>
   )
 }
 export default Layout;

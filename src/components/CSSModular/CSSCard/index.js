@@ -9,7 +9,7 @@ import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import { IconButton, Snackbar } from 'material-ui';
 import red from 'material-ui/colors/red';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import ContentCopyIcon from '@material-ui/icons/ContentCopy';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -78,9 +78,9 @@ class CSSCard extends React.Component {
     //弹出提示框
     const renderSnackbar =
       <Snackbar
-        anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         open={this.state.snackbarOpen}
-        ContentProps={{
+        contentprops={{
           'aria-describedby': 'message-id',
         }}
         message={<span id="message-id" >代码已复制到剪切板</span>}
@@ -100,12 +100,12 @@ class CSSCard extends React.Component {
               </IconButton>
             }
             title={title}
-            subheader={description}
+            subheader={description||'暂无描述'}
           />
           {renderCardContent}
           <CardActions className={classes.actions} disableActionSpacing>
             <IconButton onClick={()=>this.handleCopyCode(code.originalCode)} aria-label="Add to favorites">
-              <FavoriteIcon />
+              <ContentCopyIcon />
             </IconButton>
             {link ? <a href={link} target='_blank'>
               <IconButton aria-label="Share">

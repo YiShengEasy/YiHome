@@ -22,7 +22,7 @@ const CSSPrism = (path) => {
         });
     }
     render() {
-      return <WrappedComponent code={this.state.code}></WrappedComponent>
+      return <WrappedComponent code={this.state.code} {...this.props}></WrappedComponent>
     }
   }
 }

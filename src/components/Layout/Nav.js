@@ -29,7 +29,6 @@ const Nav = ({classes, history}) => {
     <Router history={history}>
       <Grid
         container
-        spacing={8}
         className={classes.gridContain}>
         {appRoutes.map(item => {
           const Icon = item.icon;

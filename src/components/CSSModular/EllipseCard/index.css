@@ -1,0 +1,11 @@
+.all{
+    border-radius:50%
+}
+
+.half{
+    border-radius:50% / 100% 100% 0 0
+}
+
+.quarter{
+    border-radius:100% 0 0 0
+}

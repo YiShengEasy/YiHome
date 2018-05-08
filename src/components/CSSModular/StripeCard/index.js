@@ -7,7 +7,7 @@ import cx from 'classnames';
 import Radio from 'material-ui/Radio';
 import './index.less'
 import md from './StripeCard.md'
-const radioList = ['horizontal', 'vertical','Declining'];
+const radioList = ['horizontal', 'vertical', 'Declining'];
 
 @CSSPrism(md)
 class StripeCard extends React.PureComponent {
@@ -15,21 +15,20 @@ class StripeCard extends React.PureComponent {
     selectedValue: 'horizontal' //vertical,Declining
   }
   render() {
-    const { code } = this.props;
-    const classStr=cx('stripe',`stripe-${this.state.selectedValue}`);
-    return  <CSSCard code={code} title={'条纹背景'} description={'CSS 线性渐变,background-size'}
-    link={'http://lea.verou.me/css3patterns/'}>
+    const { code, ...res } = this.props;
+    const classStr = cx('stripe', `stripe-${this.state.selectedValue}`);
+    return <CSSCard code={code} {...res} link={'http://lea.verou.me/css3patterns/'}>
       <div className={classStr}>
       </div>
       <FormGroup row>
         {radioList.map(name =>
           <FormControlLabel
-          key={`Radio-${name}`}
+            key={`Radio-${name}`}
             control={
               <Radio
                 checked={this.state.selectedValue === name}
                 value={name}
-                onChange={()=>{this.setState({selectedValue:name})}}
+                onChange={() => { this.setState({ selectedValue: name }) }}
                 name="stripe-demo"
               />
             }
