@@ -26,7 +26,8 @@ const styles = theme => ({
     height: 200,
     overflowY: 'auto',
     whiteSpace: 'pre-wrap',//必须要这个 不然高亮不会换行
-    outline: 0
+    outline: 0,
+    position: 'relative'
   },
   expand: {
     transform: 'rotate(0deg)',
