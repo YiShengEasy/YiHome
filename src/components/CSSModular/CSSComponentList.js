@@ -4,6 +4,7 @@ import AntBorderCard from './AntBorderCard';
 import EllipseCard from './EllipseCard';
 import DeformationCard from './DeformationCard';
 import FontAnimateCard from './FontAnimateCard';
+import SignCard from './SignCard';
 
 var list = [
   {
@@ -41,6 +42,12 @@ var list = [
     title: '文字跳动',
     description: 'css动画 transform keyframes',
     component: FontAnimateCard
+  },
+  {
+    name: 'SignCard',
+    title: 'SVG签名',
+    description: 'css动画',
+    component: SignCard
   },
 ]
 export default list;
