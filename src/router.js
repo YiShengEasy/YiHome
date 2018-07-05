@@ -2,7 +2,7 @@ import React from 'react';
 import {Route,Switch} from 'dva/router';
 import Layout from './components/Layout';
 import appRoutes from './routes/appRoutes'
-import ReactFunc from "./routes/ReactFunc";
+import ReactTree from "./routes/ReactTree";
 
 // 默认路由配置
 function RouterConfig({history}) {
@@ -15,7 +15,7 @@ function RouterConfig({history}) {
             <Route key={`route${item.path}`} exact path={item.path} component={item.component}/>
           )
         })}
-        <Route path="/reactPage/func"  component={ReactFunc}/>
+        <Route path="/reactPage/tree"  component={ReactTree}/>
       </Switch>
     </Layout>
   );

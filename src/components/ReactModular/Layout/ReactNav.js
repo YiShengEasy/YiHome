@@ -58,14 +58,14 @@ class ReactNav extends React.Component {
           </ListItem>
           </NavLink>
           <NavLink
-            to={'/reactPage/func'}
-            key={'func'}
+            to={'/reactPage/tree'}
+            key={'tree'}
           >
             <ListItem button className={classes.item}>
               <ListItemIcon>
                 <DraftsIcon/>
               </ListItemIcon>
-              <ListItemText inset primary="高阶组件"/>
+              <ListItemText inset primary="树型组件"/>
             </ListItem>
           </NavLink>
         </List>
