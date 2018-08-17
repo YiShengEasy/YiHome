@@ -1,69 +1,146 @@
-
-.yi-treeNode{
-  padding:20px 10px;
+.yi-treeNode {
+  padding: 20px 10px;
   margin: 0 10px;
   display: flex;
   position: relative;
   align-items: center;
-  flex-direction:column
+  flex-direction: column
 }
 
-.yi-treeNode-common{;
-  border-bottom:1px solid #000;
-}
-.yi-treeNode-common::before{
+.yi-treeNode-common::before {
   content: '';
   position: absolute;
-  z-index: 2;
+  z-index: -1;
   height: 100%;
   width: 2px;
-  background: #888888;
+  background: #dbded8;
+  transform: translateX(-50%);
   left: 50%;
   top: 0;
 }
 
-.yi-treeNode-root{
-  border-bottom:1px solid #000;
-}
-.yi-treeNode-root::before{
+.yi-treeNode-root::before {
   content: '';
   position: absolute;
   height: 50%;
   width: 2px;
-  background: #888888;
+  background: #dbded8;
+  transform: translateX(-50%);
+  z-index: -1;
   left: 50%;
   bottom: 0;
 }
 
-.yi-treeNode-leaf::before{
+.yi-treeNode-leaf::before {
   content: '';
   position: absolute;
   height: 50%;
   width: 2px;
-  background: #888888;
+  background: #dbded8;
+  transform: translateX(-50%);
   left: 50%;
+  top: 0;
+  z-index: -1;
+}
+
+.yi-tree-row {
+  position: relative;
+}
+
+.yi-tree-row::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  height: 2px;
+  width: 100%;
+  transform: translateY(-50%);
+  background: #dbded8;
+  left: 0;
   top: 0;
 }
 
-.yi-tree-row{
+.yi-tree-row:last-child::before {
+  width: 50%;
+}
+
+.yi-tree-row:first-child::before {
+  width: 50%;
+  left: 50%;
+}
+
+.yi-tree-row:only-child::before {
+  width: 0;
+}
+
+.yi-nodeContent {
   position: relative;
-}
-.yi-treeNode-edit{
-
-}
-
-.yi-nodeContent{
-  z-index: 3;
-  min-width: 120px;
-  max-width: 160px;
-  height: 60px;
-  background: #e7edff;
-  border: #000 1px solid;
-  text-align: center;
-  line-height: 60px;
+  min-width: 150px;
+  max-width: 220px;
+  height: 70px;
+  background: #ffffff;
+  border: 1px solid #ECECEC;
+  box-shadow: 2px 4px 10px 0 rgba(0,0,0,0.20);
   display: block;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
+}
+.yi-nodeContent-title{
+  height: 25px;
+  text-align: left;
+  color:#2869FF ;
+
+
+}
+.yi-nodeContent-title img{
+  vertical-align: middle;
+}
+.yi-nodeContent-title span{
+  max-width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.yi-nodeContent-value{
+  padding: 10px;
+  padding-top: 5px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+.yi-expand-img {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  left: 50%;
+  top: 100%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.tagRender {
+  position: absolute;
+  background: #FF5F2D;
+  color: #eff3f6;
+  height: 30px;
+  text-align: center;
+  line-height: 25px;
+  width: 20px;
+  right: 5px;
+  top: -3px;
+}
+.tagRender-leaf{
+  position: absolute;
+  right: 5px;
+  top: 17px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
 }

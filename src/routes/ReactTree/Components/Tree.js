@@ -7,44 +7,47 @@ import PropTypes from "prop-types";
 
 class Tree extends React.PureComponent {
   static propTypes = {
-    defaultData: PropTypes.array,
     data: PropTypes.array,
-    hoveNode:PropTypes.node
+    contentStyle: PropTypes.object,
+    rowStyle: PropTypes.object,
+    nodeStyle: PropTypes.object,
+    style: PropTypes.object,
+    expandImg: PropTypes.any,
+    unExpandImg: PropTypes.any,
+    tagColor: PropTypes.string,
   };
   static defaultProps = {
-    defaultData: []
+    data: []
   };
 
   constructor(props) {
     super(props);
-    this.nodeType='root';
+    this.nodeType = 'root';
   }
 
 
   // 渲染节点
   renderChildTree = (data) => {
-    const {nodeHeight,hoveNode,rootNode,commonNode,leafNode,treeNode}=this.props;
-    // 默认节点为Node，可以自定义节点
-    const RootCompont=rootNode||treeNode||Node;
-    let CommonCompont=commonNode||treeNode||Node;
-    const LeafCompont=leafNode||treeNode||Node;
+    const {nodeHeight, hoveNode, style, ...res} = this.props;
     return data.map(item => {
       const nodeProps = {
-        value: item.value,
-        nodeType:this.nodeType,
-        height:nodeHeight,
-        hoveNode
+        nodeType: this.nodeType,
+        height: nodeHeight,
+        hoveNode,
+        record: item,
+        ...item,
+        ...res
       }
       this.nodeType = 'common';
       if (!item.children) {
         return (
-          <LeafCompont {...nodeProps}   key={item.id} nodeType={'leaf'}/>
+          <Node {...nodeProps} key={item.id} nodeType={'leaf'}/>
         )
       } else {
         return (
-          <CommonCompont {...nodeProps}  key={item.id}>
+          <Node {...nodeProps} key={item.id}>
             {this.renderChildTree(item.children)}
-          </CommonCompont>
+          </Node>
         )
       }
     })
@@ -52,9 +55,10 @@ class Tree extends React.PureComponent {
 
 
   render() {
-    const {data} = this.props;
+    const {data, style} = this.props;
+    this.nodeType = 'root';
     return (
-      <div style={{display: 'flex', justifyContent: 'center'}}>
+      <div style={{display: 'flex', overflowX: 'auto', padding: 20, ...style}}>
         {data ? this.renderChildTree(data) : ''}
       </div>
     )
